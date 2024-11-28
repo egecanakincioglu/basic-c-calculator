@@ -5,6 +5,8 @@ LDFLAGS = -lm
 
 # Directories
 SRC_DIR = src
+APP_DIR = $(SRC_DIR)/app
+CORE_DIR = $(SRC_DIR)/core
 INCLUDE_DIR = include
 BUILD_DIR = build
 DATA_DIR = data
@@ -13,8 +15,12 @@ DATA_DIR = data
 TARGET = $(BUILD_DIR)/calculator
 
 # Source and object files
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
+APP_SRCS = $(wildcard $(APP_DIR)/*.c)
+CORE_SRCS = $(wildcard $(CORE_DIR)/*.c)
+SRCS = $(APP_SRCS) $(CORE_SRCS)
+APP_OBJS = $(patsubst $(APP_DIR)/%.c, $(BUILD_DIR)/%.o, $(APP_SRCS))
+CORE_OBJS = $(patsubst $(CORE_DIR)/%.c, $(BUILD_DIR)/%.o, $(CORE_SRCS))
+OBJS = $(APP_OBJS) $(CORE_OBJS)
 
 # Default target
 all: $(TARGET)
@@ -24,8 +30,13 @@ $(TARGET): $(OBJS)
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-# Build object files
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+# Build object files for app
+$(BUILD_DIR)/%.o: $(APP_DIR)/%.c
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Build object files for core
+$(BUILD_DIR)/%.o: $(CORE_DIR)/%.c
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
