@@ -46,25 +46,25 @@ basic-c-calculator/
 
 ## How to Run 🚀
 
-	1.	Clone the Repository:
+### 1. Clone the Repository:
 ```
 git clone https://github.com/egecanakincioglu/basic-c-calculator.git
 cd basic-c-calculator
 ```
 
-	2.	Compile the Program:
-## Use the included Makefile to compile the project.
+### 2. Compile the Program:
+Use the included Makefile to compile the project.
 ```
 make
 ```
 
-	3.	Run the Program:
+### 3. Run the Program:
 ```
 ./build/calculator
 ```
 
-	4.	Clean Build Files:
-## Remove compiled files using:
+### 4. Clean Build Files:
+Remove compiled files using:
 ```
 make clean
 ```
