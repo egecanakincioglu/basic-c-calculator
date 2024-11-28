@@ -11,12 +11,10 @@ typedef struct HistoryNode {
     struct HistoryNode *next;
 } HistoryNode;
 
-void add_to_history(HistoryNode **head, char *process_name, int transaction_size, char *transaction_detail, float result);
+void load_history_from_csv(HistoryNode **head);
+void save_history_to_csv(HistoryNode *head);
+void save_to_history(HistoryNode **head, char *process_name, int transaction_size, char *transaction_detail, float result);
 void display_history(HistoryNode *head);
 void clear_history(HistoryNode **head);
-void save_history_to_csv(HistoryNode *head);
-void load_history_from_csv(HistoryNode **head);
-void save_to_history(HistoryNode **head, char *process_name, int transaction_size, char *transaction_detail, float result);
-void display_paginated_history(HistoryNode *head);
 
 #endif
