@@ -1,0 +1,27 @@
+Addition Process,3,9495.00 + 3436.00 + 3434.00,16365.00
+Subtraction Process,3,923929.00 - 1230.00 - 5883.00,916816.00
+Multiplication Process,8,2.00 * 3.00 * 4.00 * 9.00 * 7.00 * 4.00 * 74.00 * 3.00,1342656.00
+Division Process,3,23954.00 / 34.00 / 5.00,140.91
+Power Process,2,2.00 ^ 7.00,128.00
+Power Process,2,923.00 ^ 34.00,inf
+Square Root,1,49.00,7.00
+Square Root,1,9.00,3.00
+Square Root,1,923.00,30.38
+Power Process,2,38.00 ^ 43.00,inf
+Power Process,2,7.00 ^ 92.00,inf
+Division Process,3,38534.00 / 23.00 / 3.00,558.46
+Addition Process,6,3.00 + 65.00 + 7.00 + 23.00 + 5.00 + 3.00,106.00
+Power Process,2,6.00 ^ 6.00,46656.00
+Power Process,2,6.00 ^ 6.00,46656.00
+Power Process,2,6.00 ^ 6.00,46656.00
+Power Process,2,6.00 ^ 6.00,46656.00
+Power Process,2,6.00 ^ 6.00,46656.00
+Power Process,2,5.00 ^ 5.00,3125.00
+Square Root,1,5.00,2.24
+Square Root,1,5.00,2.24
+Square Root,1,5.00,2.24
+Square Root,1,5.00,2.24
+Square Root,1,5.00,2.24
+Square Root,1,5.00,2.24
+Matrix Addition,3,Matrix Addition (3x1),0.00
+Matrix Addition,9,Matrix Addition (3x3),0.00
