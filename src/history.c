@@ -1,81 +1,101 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "history.h"
 
-void save_history_to_csv(History history[], int history_count) {
-    FILE *file = fopen(CSV_FILE, "w");
+void add_to_history(HistoryNode **head, char *process_name, int transaction_size, char *transaction_detail, float result) {
+    HistoryNode *new_node = (HistoryNode *)malloc(sizeof(HistoryNode));
+    if (new_node == NULL) {
+        printf("Error: Memory allocation failed!\n");
+        return;
+    }
+
+    strcpy(new_node->process_name, process_name);
+    new_node->transaction_size = transaction_size;
+    strcpy(new_node->transaction_detail, transaction_detail);
+    new_node->result = result;
+
+    new_node->next = *head;
+    *head = new_node;
+}
+
+void display_history(HistoryNode *head) {
+    if (head == NULL) {
+        printf("No history available.\n");
+        return;
+    }
+
+    HistoryNode *current = head;
+
+    printf("\nTransaction History:\n");
+    printf("+-------------------------+--------------------+--------------------------------+------------+\n");
+    printf("| PROCESS                 | TRANSACTION SIZE   | TRANSACTION DETAIL             | RESULT     |\n");
+    printf("+-------------------------+--------------------+--------------------------------+------------+\n");
+
+    while (current != NULL) {
+        printf("| %-23s | %-18d | %-30s | %-10.2f |\n",
+               current->process_name, current->transaction_size, current->transaction_detail, current->result);
+        current = current->next;
+    }
+
+    printf("+-------------------------+--------------------+--------------------------------+------------+\n");
+}
+
+void clear_history(HistoryNode **head) {
+    HistoryNode *current = *head;
+
+    while (current != NULL) {
+        HistoryNode *temp = current;
+        current = current->next;
+        free(temp);
+    }
+
+    *head = NULL;
+}
+
+void save_history_to_csv(HistoryNode *head) {
+    FILE *file = fopen(HISTORY_CSV_FILE, "w");
     if (file == NULL) {
         printf("Error: Unable to open file for saving history.\n");
         return;
     }
-    for (int i = 0; i < history_count; i++) {
-        fprintf(file, "%s,%d,%s,%.2f\n", history[i].process_name, history[i].transaction_size,
-                history[i].transaction_detail, history[i].result);
+
+    HistoryNode *current = head;
+    while (current != NULL) {
+        fprintf(file, "%s,%d,%s,%.2f\n",
+                current->process_name,
+                current->transaction_size,
+                current->transaction_detail,
+                current->result);
+        current = current->next;
     }
+
     fclose(file);
 }
 
-int load_history_from_csv(History history[], int max_count) {
-    FILE *file = fopen(CSV_FILE, "r");
+void load_history_from_csv(HistoryNode **head) {
+    FILE *file = fopen(HISTORY_CSV_FILE, "r");
     if (file == NULL) {
         printf("No history file found. Starting fresh.\n");
-        return 0;
+        return;
     }
 
-    int count = 0;
-    while (fscanf(file, "%[^,],%d,%[^,],%f\n", history[count].process_name,
-                  &history[count].transaction_size, history[count].transaction_detail,
-                  &history[count].result) != EOF) {
-        count++;
-        if (count >= max_count) break;
+    char process_name[30];
+    int transaction_size;
+    char transaction_detail[200];
+    float result;
+
+    while (fscanf(file, "%[^,],%d,%[^,],%f\n", process_name, &transaction_size, transaction_detail, &result) != EOF) {
+        add_to_history(head, process_name, transaction_size, transaction_detail, result);
     }
+
     fclose(file);
-    return count;
 }
 
-void display_paginated_history(History history[], int total_count) {
-    int page = 0;
-    int items_per_page = HISTORY_SIZE;
-
-    while (1) {
-        int start = page * items_per_page;
-        int end = start + items_per_page;
-        if (end > total_count) end = total_count;
-
-        printf("\n+-------------------------+--------------------+--------------------------------+------------+\n");
-        printf("| PROCESS                 | TRANSACTION SIZE   | TRANSACTION DETAIL             | RESULT     |\n");
-        printf("+-------------------------+--------------------+--------------------------------+------------+\n");
-        for (int i = start; i < end; i++) {
-            printf("| %-23s | %-18d | %-30s | %-10.2f |\n", history[i].process_name,
-                   history[i].transaction_size, history[i].transaction_detail, history[i].result);
-        }
-        printf("+-------------------------+--------------------+--------------------------------+------------+\n");
-
-        printf("\nPage %d/%d\n", page + 1, (total_count + items_per_page - 1) / items_per_page);
-        printf("Options:\n");
-        printf("1. Next Page\n");
-        printf("2. Previous Page\n");
-        printf("3. Back to Menu\n");
-        printf("Your Choice: ");
-        int choice;
-        scanf("%d", &choice);
-
-        if (choice == 1 && end < total_count) {
-            page++;
-        } else if (choice == 2 && page > 0) {
-            page--;
-        } else if (choice == 3) {
-            break;
-        } else {
-            printf("Invalid choice. Try again.\n");
-        }
-    }
+void save_to_history(HistoryNode **head, char *process_name, int transaction_size, char *transaction_detail, float result) {
+    add_to_history(head, process_name, transaction_size, transaction_detail, result);
 }
 
-void save_to_history(History history[], int *history_count, char *process_name, int transaction_size, char *transaction_detail, float result) {
-    strcpy(history[*history_count].process_name, process_name);
-    history[*history_count].transaction_size = transaction_size;
-    strcpy(history[*history_count].transaction_detail, transaction_detail);
-    history[*history_count].result = result;
-    (*history_count)++;
+void display_paginated_history(HistoryNode *head) {
+    display_history(head);
 }
