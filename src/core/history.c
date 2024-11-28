@@ -56,7 +56,7 @@ void clear_history(HistoryNode **head) {
 void save_history_to_csv(HistoryNode *head) {
     FILE *file = fopen(HISTORY_CSV_FILE, "w");
     if (file == NULL) {
-        printf("Error: Unable to open file for saving history.\n");
+        printf("Error: Unable to open file for writing history.\n");
         return;
     }
 
@@ -94,6 +94,7 @@ void load_history_from_csv(HistoryNode **head) {
 
 void save_to_history(HistoryNode **head, char *process_name, int transaction_size, char *transaction_detail, float result) {
     add_to_history(head, process_name, transaction_size, transaction_detail, result);
+    save_history_to_csv(*head);
 }
 
 void display_paginated_history(HistoryNode *head) {

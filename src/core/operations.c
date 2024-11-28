@@ -58,22 +58,7 @@ void matrix_addition(int rows, int cols, int mat1[10][10], int mat2[10][10], int
     }
 }
 
-void print_matrix(int rows, int cols, int matrix[10][10]) {
-    printf("\nMatrix:\n");
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%4d ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
-
 void matrix_multiplication(int rows1, int cols1, int mat1[10][10], int rows2, int cols2, int mat2[10][10], int result[10][10]) {
-    if (cols1 != rows2) {
-        printf("Error: Matrix dimensions do not allow multiplication.\n");
-        return;
-    }
-
     for (int i = 0; i < rows1; i++) {
         for (int j = 0; j < cols2; j++) {
             result[i][j] = 0;
@@ -98,9 +83,7 @@ int determinant(int matrix[10][10], int n) {
         for (int i = 1; i < n; i++) {
             int sub_j = 0;
             for (int j = 0; j < n; j++) {
-                if (j == f) {
-                    continue;
-                }
+                if (j == f) continue;
                 temp[sub_i][sub_j] = matrix[i][j];
                 sub_j++;
             }
