@@ -87,46 +87,46 @@ make clean
 ## Highlights for Learning 📚
 	
 ### C Programming Concepts
-	- **Modular Programming**: Code is divided into modules using `.h` and `.c` files.
-	- **File Handling**: Data recording and loading operations with `fopen`, `fclose`, `fprintf`, `fscanf`.
-	- **Array and String Manipulation**: Multidimensional arrays and string functions like `strcat` and `sprintf`.
-	- **Dynamic Memory Management**: Managing operation history using `malloc` and `free`.
-	- **Recursive Algorithms**: Used in operations like determinant calculation.
+- **Modular Programming**: Code is divided into modules using `.h` and `.c` files.
+- **File Handling**: Data recording and loading operations with `fopen`, `fclose`, `fprintf`, `fscanf`.
+- **Array and String Manipulation**: Multidimensional arrays and string functions like `strcat` and `sprintf`.
+- **Dynamic Memory Management**: Managing operation history using `malloc` and `free`.
+- **Recursive Algorithms**: Used in operations like determinant calculation.
 	
-	### Mathematical Operations
-	- **Basic Operations**: Fundamental mathematical functions such as addition, subtraction, multiplication, and division.
-	- **Advanced Operations**: Square root and exponentiation.
-	- **Matrix Operations**: Matrix addition, multiplication, and determinant calculation.
+### Mathematical Operations
+- **Basic Operations**: Fundamental mathematical functions such as addition, subtraction, multiplication, and division.
+- **Advanced Operations**: Square root and exponentiation.
+- **Matrix Operations**: Matrix addition, multiplication, and determinant calculation.
 	
-	### Error Handling
-	- **Error Detection**:
-	  - Division by zero check and user notification.
-	  - Handling errors for square root of negative numbers.
-	  - Error notifications for matrix dimension mismatch.
-	- **Input Validation**:
-	  - Verifying that numerical inputs are positive and valid.
-	  - Ensuring matrix dimensions are correct.
+### Error Handling
+- **Error Detection**:
+- Division by zero check and user notification.
+- Handling errors for square root of negative numbers.
+- Error notifications for matrix dimension mismatch.
+- **Input Validation**:
+- Verifying that numerical inputs are positive and valid.
+- Ensuring matrix dimensions are correct.
 	
-	### Build Automation
-	- **Makefile Usage**:
-	  - Simplifying the build process with commands like `make`, `make clean`, and `make run`.
-	  - Optimized structure to compile only necessary changes in project files.
+### Build Automation
+- **Makefile Usage**:
+- Simplifying the build process with commands like `make`, `make clean`, and `make run`.
+- Optimized structure to compile only necessary changes in project files.
 	
-	### Data Handling
-	- **Operation History Management**:
-	  - Storing operation history in a linked list structure.
-	  - Saving and reloading operation history to/from a CSV file.
+### Data Handling
+- **Operation History Management**:
+- Storing operation history in a linked list structure.
+- Saving and reloading operation history to/from a CSV file.
 	
-	### User Interaction
-	- **Menu-Based Structure**: Dynamically performing operations based on user input.
-	- **Result Visualization**: Clearly presenting results and operation history to the user after calculations.
+### User Interaction
+- **Menu-Based Structure**: Dynamically performing operations based on user input.
+- **Result Visualization**: Clearly presenting results and operation history to the user after calculations.
 	
-	### Programming Discipline
-	- Modular structure to enhance code readability.
-	- Managing user errors and ensuring secure input validation.
-	- Optimizing memory usage with dynamic data management.
+### Programming Discipline
+- Modular structure to enhance code readability.
+- Managing user errors and ensuring secure input validation.
+- Optimizing memory usage with dynamic data management.
 	
-	This project is an ideal application for practicing both basic and advanced C programming concepts. Its modular structure and functional design provide a practical experience in developing systems for real-world problems.
+This project is an ideal application for practicing both basic and advanced C programming concepts. Its modular structure and functional design provide a practical experience in developing systems for real-world problems.
 
 ## License 📜
 
