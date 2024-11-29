@@ -85,23 +85,20 @@ make clean
 	•	Scroll through saved operation history with navigation options.
 
 ## Highlights for Learning 📚
-
-
-	# Learned Concepts
 	
-	## C Programming Concepts
+### C Programming Concepts
 	- **Modular Programming**: Code is divided into modules using `.h` and `.c` files.
 	- **File Handling**: Data recording and loading operations with `fopen`, `fclose`, `fprintf`, `fscanf`.
 	- **Array and String Manipulation**: Multidimensional arrays and string functions like `strcat` and `sprintf`.
 	- **Dynamic Memory Management**: Managing operation history using `malloc` and `free`.
 	- **Recursive Algorithms**: Used in operations like determinant calculation.
 	
-	## Mathematical Operations
+	### Mathematical Operations
 	- **Basic Operations**: Fundamental mathematical functions such as addition, subtraction, multiplication, and division.
 	- **Advanced Operations**: Square root and exponentiation.
 	- **Matrix Operations**: Matrix addition, multiplication, and determinant calculation.
 	
-	## Error Handling
+	### Error Handling
 	- **Error Detection**:
 	  - Division by zero check and user notification.
 	  - Handling errors for square root of negative numbers.
@@ -110,21 +107,21 @@ make clean
 	  - Verifying that numerical inputs are positive and valid.
 	  - Ensuring matrix dimensions are correct.
 	
-	## Build Automation
+	### Build Automation
 	- **Makefile Usage**:
 	  - Simplifying the build process with commands like `make`, `make clean`, and `make run`.
 	  - Optimized structure to compile only necessary changes in project files.
 	
-	## Data Handling
+	### Data Handling
 	- **Operation History Management**:
 	  - Storing operation history in a linked list structure.
 	  - Saving and reloading operation history to/from a CSV file.
 	
-	## User Interaction
+	### User Interaction
 	- **Menu-Based Structure**: Dynamically performing operations based on user input.
 	- **Result Visualization**: Clearly presenting results and operation history to the user after calculations.
 	
-	## Programming Discipline
+	### Programming Discipline
 	- Modular structure to enhance code readability.
 	- Managing user errors and ensuring secure input validation.
 	- Optimizing memory usage with dynamic data management.
