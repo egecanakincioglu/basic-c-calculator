@@ -28,16 +28,22 @@ basic-c-calculator/
 ├── data/                      # Data storage folder
 │   └── history.csv            # Stores calculation history
 ├── include/                   # Header files
+│   ├── basic_operations.h     # Header for basic operations
 │   ├── history.h              # Header for history module
+│   ├── matrix_operations.h    # Header for matrix operations
 │   ├── menu.h                 # Header for menu module
-│   ├── operations.h           # Header for operations module
+│   ├── operations.h           # Header for advanced operations module
 │   └── utils.h                # Header for utility functions
 ├── src/                       # Source code files
-│   ├── history.c              # Handles operation history (save/load)
-│   ├── main.c                 # Main program entry
-│   ├── menu.c                 # Implements the main menu
-│   ├── operations.c           # Performs mathematical operations
-│   └── utils.c                # Utility functions
+│   ├── app/                   # Application-level code
+│   │   ├── main.c             # Main program entry
+│   │   └── menu.c             # Implements the main menu
+│   ├── core/                  # Core functional modules
+│   │   ├── basic_operations.c # Performs basic operations (e.g., +, -, *, /)
+│   │   ├── history.c          # Handles operation history (save/load)
+│   │   ├── matrix_operations.c # Handles matrix operations
+│   │   ├── operations.c       # Performs advanced mathematical operations
+│   │   └── utils.c            # Utility functions
 ├── .gitignore                 # Git ignore file
 ├── LICENSE                    # License file
 ├── Makefile                   # Build automation file
